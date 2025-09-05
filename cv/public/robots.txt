@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://achalanayak.com
+
+# Sitemaps
+Sitemap: https://achalanayak.com/sitemap.xml
