@@ -7,7 +7,9 @@
     "build": "next build",
     "postbuild": "next-sitemap",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "drafts:list": "node scripts/publish-draft.js list",
+    "drafts:publish": "node scripts/publish-draft.js"
   },
   "dependencies": {
     "@apollo/server": "^4.10.2",
