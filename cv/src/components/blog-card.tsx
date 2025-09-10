@@ -21,10 +21,10 @@ export interface BlogPost {
   excerpt: string;
   content?: string;
   externalUrl?: string;
-  tags: ReadonlyArray<string> | string[];
+  tags?: ReadonlyArray<string> | string[];
   readingTime: string;
   published: boolean;
-  ogImage?: string; // Add optional ogImage property
+  ogImage?: string; 
 }
 
 interface BlogCardProps {
@@ -94,7 +94,7 @@ export const BlogCard = ({ post, variant = "default" }: BlogCardProps) => {
         </CardContent>
 
         <CardFooter className="flex flex-wrap gap-2 p-5 pt-3">
-          {post.tags.map((tag) => (
+          {post.tags && post.tags.length > 0 && post.tags.map((tag) => (
             <Badge
               key={tag}
               variant="secondary"

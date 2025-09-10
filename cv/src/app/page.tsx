@@ -18,101 +18,15 @@ import { RESUME_DATA } from "@/data/resume-data";
 import { ProjectCard } from "@/components/project-card";
 import { PublishedWorkSection } from "@/components/published-work";
 import { HoverNavbar } from "@/components/hover-navbar";
-import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { BlogPost, BlogCard } from "@/components/blog-card";
 import { InteractiveSkills } from "@/components/interactive-skills";
 import { WorkTimeline } from "@/components/work-timeline";
-import { HyperText } from "@/components/magicui/hyper-text";
 import { AboutMeMorph } from "@/components/about-me-morph";
 import { GitHubStars } from "@/components/github-stars";
 import { Metadata } from "next";
 
-// Name animation overlay component
-const NameAnimation = () => {
-  const [visible, setVisible] = useState(true);
-
-  useEffect(() => {
-    // Prevent page scrolling during animation
-    if (visible) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-
-    const timer = setTimeout(() => {
-      setVisible(false);
-    }, 2200); // Animation stays for 2.2 seconds (faster than before)
-
-    return () => {
-      clearTimeout(timer);
-      document.body.style.overflow = "";
-    };
-  }, [visible]);
-
-  const nameWords = RESUME_DATA.name.split(" ");
-
-  return (
-    <AnimatePresence>
-      {visible && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }} // Faster fade in/out
-          className="fixed inset-0 z-50 flex items-center justify-center bg-white"
-        >
-          <div className="relative">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.05 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.4 }} // Faster background animation
-              className="absolute inset-0 -z-10"
-              style={{
-                backgroundImage:
-                  "radial-gradient(circle, rgba(0,0,0,0.1) 1px, transparent 1px)",
-                backgroundSize: "50px 50px",
-              }}
-            />
-
-            {/* Name with HyperText animation */}
-            <div className="relative flex flex-wrap justify-center gap-x-4 text-center text-4xl font-bold sm:text-6xl lg:text-9xl">
-              {nameWords.map((word, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.1 * index, duration: 0.5 }} // Faster animation with shorter delay
-                  className="overflow-hidden"
-                >
-                  <HyperText className="bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 bg-clip-text text-4xl font-bold text-transparent sm:text-6xl lg:text-9xl">
-                    {word}
-                  </HyperText>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* About text with HyperText */}
-            <motion.div
-              className="text-center md:mt-10"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }} // Faster appearance of about text
-            >
-              <HyperText className="text-sm tracking-wide text-gray-600">
-                {RESUME_DATA.about}
-              </HyperText>
-            </motion.div>
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  );
-};
-
 export default function Page() {
-  const [animationComplete, setAnimationComplete] = useState(false);
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
 
   // Command menu links
@@ -130,15 +44,6 @@ export default function Page() {
       title: socialMediaLink.name,
     })),
   ];
-
-  useEffect(() => {
-    // Set animation complete after 2 seconds
-    const timer = setTimeout(() => {
-      setAnimationComplete(true);
-    }, 2000);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   useEffect(() => {
     // Load blog posts
@@ -159,42 +64,13 @@ export default function Page() {
     loadBlogPosts();
   }, []);
 
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 },
-  };
-
   return (
     <main className="container relative mx-auto scroll-my-12 overflow-auto p-4 md:p-16 print:p-12">
-      {/* Add the name animation component */}
-      <NameAnimation />
-
-      {/* Only show content after animation completes */}
-      <AnimatePresence>
-        {animationComplete && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-          >
-            <HoverNavbar links={commandLinks} />
-            <motion.section
-              id="top"
-              className="mx-auto w-full max-w-4xl space-y-8 bg-white print:space-y-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
+      <HoverNavbar links={commandLinks} />
+      <section
+        id="top"
+        className="mx-auto w-full max-w-4xl space-y-8 bg-white print:space-y-6"
+      >
               <div className="flex items-center justify-between">
                 <div className="flex-1 space-y-1.5">
                   <h1 className="text-2xl font-bold">{RESUME_DATA.name}</h1>
@@ -258,10 +134,7 @@ export default function Page() {
                   </div>
                 </div>
 
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
+                <div>
                   <Avatar className="size-28">
                     <AvatarImage
                       alt={RESUME_DATA.name}
@@ -269,7 +142,7 @@ export default function Page() {
                     />
                     <AvatarFallback>{RESUME_DATA.initials}</AvatarFallback>
                   </Avatar>
-                </motion.div>
+                </div>
               </div>
 
               <Section id="about">
@@ -323,12 +196,9 @@ export default function Page() {
                 </div>
                 <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
                   {blogPosts.slice(0, 2).map((post) => (
-                    <motion.div
-                      key={post.slug}
-                      whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                    >
+                    <div key={post.slug}>
                       <BlogCard post={post} />
-                    </motion.div>
+                    </div>
                   ))}
                 </div>
               </Section>
@@ -347,19 +217,14 @@ export default function Page() {
                 <h2 className="text-xl font-bold">Projects</h2>
                 <div className="-mx-3 mt-4 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3 print:grid-cols-3 print:gap-2">
                   {RESUME_DATA.projects.map((project, index) => (
-                    <motion.div
-                      key={project.title}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.1 }}
-                    >
+                    <div key={project.title}>
                       <ProjectCard
                         title={project.title}
                         description={project.description}
                         tags={project.techStack}
                         link={project.link?.href}
                       />
-                    </motion.div>
+                    </div>
                   ))}
                 </div>
               </Section>
@@ -401,10 +266,7 @@ export default function Page() {
                   ))}
                 </div>
               </Section>
-            </motion.section>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      </section>
     </main>
   );
 }

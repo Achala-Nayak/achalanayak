@@ -3,7 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import { BlogPost } from '@/components/blog-card';
 
-const postsDirectory = path.join(process.cwd(), 'src/posts');
+const postsDirectory = path.join(process.cwd(), 'src/data/posts');
 
 // Get all blog posts from markdown files
 export function getAllBlogPosts(): BlogPost[] {

@@ -29,7 +29,6 @@ try {
 
 // Define additional pages to include in sitemap
 const additionalPaths = [
-  "/cognitivelab",
   "/blog",
   ...blogSlugs.map((slug) => `/blog/${slug}`),
 ];
@@ -52,7 +51,7 @@ module.exports = {
       result.push({
         loc: path,
         changefreq: path.includes("/blog/") ? "monthly" : "weekly",
-        priority: path === "/cognitivelab" ? 0.9 : path === "/blog" ? 0.8 : 0.7,
+        priority: path === "/blog" ? 0.8 : 0.7,
         lastmod: new Date().toISOString(),
       });
     }
