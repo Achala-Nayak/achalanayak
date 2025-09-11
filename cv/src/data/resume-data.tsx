@@ -12,53 +12,48 @@ avatarUrl: "/achalanayak.png",
 personalWebsiteUrl: "https://achalanayak.com",
 resumeUrl: "/Achala_Nayak.pdf",
 extendedBio: `
-  
 ## My Journey in Technology
 
-My passion for technology began during my undergraduate years at PES University, where I discovered the fascinating intersection of artificial intelligence and software development. What started as curiosity about how machines can solve complex problems has evolved into a professional career focused on building innovative AI solutions.
+My fascination with technology began at a young age—I was always curious about how things work and how they are built. This curiosity naturally evolved into a passion for solving problems and creating impactful solutions through software and AI.
 
 ### From Student to Professional
 
-During my time at PES University, I developed a strong foundation in computer science fundamentals while exploring various domains including web development, database management, and artificial intelligence. This diverse exposure helped me understand how different technologies can work together to create meaningful solutions.
+During my undergraduate studies, I built a strong foundation in computer science with a particular interest in cloud computing, linear algebra, machine learning, statistics, data science, DBMS, and data structures. These subjects helped me understand both the theoretical and practical sides of technology.
 
-My internship experience at Hewlett Packard Enterprise provided valuable insights into enterprise-level software development, where I learned about large-scale system architecture and agile development methodologies that are crucial in professional environments.
+At Hewlett Packard Enterprise, I worked on streamlining application deployment using a metadata-driven approach, improving the logic for selecting required application layers during cluster deployments. This experience taught me how large-scale systems are designed and optimized for real-world impact.
 
 ### Current Role at Deloitte
 
-As an Analyst at Deloitte, I'm working at the forefront of digital transformation, helping organizations leverage AI and data-driven insights to solve complex business challenges. This role allows me to bridge the gap between technical innovation and business value, ensuring that AI solutions are not just technically sound but also practically applicable.
+Currently, at Deloitte, I’m expanding my expertise by working with SAP Data Factory, gaining valuable exposure to enterprise data ecosystems and their role in digital transformation.
 
 ## Technical Expertise
 
-My technical approach focuses on:
+I feel most confident in:
 
-1. **Full-Stack Development**: Building end-to-end solutions using modern web technologies
-2. **AI Integration**: Incorporating artificial intelligence into practical applications  
-3. **Data Management**: Working with various databases and big data technologies
-4. **Cloud Technologies**: Leveraging cloud platforms for scalable solutions
+Python & Software Development – writing clean, efficient code for end-to-end applications  
+Data Science & AI – applying ML/statistics to solve meaningful problems  
+Cloud Technologies – leveraging scalable infrastructures for deployments  
+
+One of my most exciting projects is HirePilot, a platform that automates the job application process by tailoring resumes, parsing job descriptions, and generating customized responses. This project reflects my passion for combining AI with practical applications that save time and create real-world value.
 
 ## What I'm Learning Now
 
-I'm currently exploring:
+I'm currently focusing on enhancing my expertise in:
 
-- Advanced AI techniques and their business applications
-- Cloud-native development patterns
-- Modern data engineering practices
-- Emerging technologies in the AI space
+- Data Science and AI (ML, LLMs, applied AI systems)  
+- Enterprise Data Systems (SAP, data integration)  
+- Scalable Cloud Solutions  
 
 ## Beyond Technology
 
-Outside of my professional work, I enjoy solving coding challenges on platforms like LeetCode, contributing to open-source projects, and staying updated with the latest trends in technology. I believe in continuous learning and sharing knowledge with the community.
+Outside of work, I love building personal projects that challenge me to learn new skills and explore emerging technologies. I believe continuous learning, curiosity, and experimentation are the best ways to grow in tech.
 
 ## Let's Connect
 
-I'm always interested in discussing:
-- AI applications in business
-- Full-stack development best practices  
-- Career opportunities in tech
-- Collaborative projects and learning opportunities
-
-Feel free to reach out if you'd like to connect, discuss technology, or explore potential collaboration opportunities!
-`,
+I’m always open to meaningful conversations about technology, career growth, and emerging trends in AI and data science.  
+Whether you’d like to discuss ideas, share insights, or simply connect, feel free to reach out!
+`
+,
   contact: {
     email: "achala.nayak2@gmail.com",
    
